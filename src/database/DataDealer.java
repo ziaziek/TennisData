@@ -1,17 +1,12 @@
 package database;
 
 import data.HibernateUtil;
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-import org.hibernate.cfg.Configuration;
-
-import data.Matches;
-import data.Players;
 
 import errors.DataDealerReadException;
 import errors.DataDealerWriteException;
@@ -142,6 +137,18 @@ public class DataDealer {
         public List readQueryBasedData(Query qry){
             if(session!=null && session.isOpen()){
                 return qry.list();
+            } else {
+                return null;
+            }
+        }
+        
+        public List readStrinQueryBasedData(String qry, Object[] params){
+            if(session!=null && session.isOpen()){
+                Query q = session.createQuery(qry);
+                for(int i=0; i<params.length; i++){
+                    q.setParameter(i, params[i]);
+                }
+                return q.list();
             } else {
                 return null;
             }

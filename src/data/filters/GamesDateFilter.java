@@ -7,7 +7,6 @@ package data.filters;
 import data.Games;
 import data.GamesExtendedHelper;
 import java.util.Calendar;
-import logsreader.misc.Filter;
 
 /**
  *

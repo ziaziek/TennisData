@@ -8,7 +8,6 @@ import data.Games;
 import data.GamesExtendedHelper;
 import data.GamesResults;
 import java.util.Calendar;
-import logsreader.misc.Filter;
 
 /**
  *

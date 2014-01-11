@@ -6,7 +6,6 @@ package data.filters;
 
 import data.Games;
 import data.GamesResults;
-import logsreader.misc.Filter;
 
 /**
  *

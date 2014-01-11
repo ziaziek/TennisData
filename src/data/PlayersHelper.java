@@ -9,6 +9,7 @@ import org.hibernate.criterion.Expression;
 import database.DataDealer;
 
 import logging.LogPc;
+import logging.LoggerCustom;
 
 public class PlayersHelper extends Players {
 
@@ -21,7 +22,7 @@ public class PlayersHelper extends Players {
 					- p.getBirthday().getTimeInMillis());
 			return cret.get(Calendar.YEAR) - YEAR_BEGINNING_OF_ALL;
 		} else {
-			LogPc.Pclog.warn("Age could not be calculated!");
+			new LoggerCustom("PlayersHelper").warn("Age could not be calculated!");
 			return 0;
 		}
 
@@ -50,7 +51,7 @@ public class PlayersHelper extends Players {
 			retStr.append(new SimpleDateFormat("dd-MM-yyyy").format(p.getBirthday()
 				.getTime()));
 		} catch(Exception ex){
-			LogPc.Pclog.error(ex.getMessage(), ex);
+			new LoggerCustom("PlayersHelper").error(ex.getMessage(), ex);
 			retStr.append("00-00-0000");
 		}
 		retStr.append(",");

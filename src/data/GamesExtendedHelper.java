@@ -6,12 +6,13 @@ import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import logging.LogPc;
+import logging.LoggerCustom;
 
 public class GamesExtendedHelper extends Games {
 
 	private String playerName;
 	private String oponentName;
-
+        private LoggerCustom log = new LoggerCustom("GsmesExtHelper");
 	public String getOponentName() {
 		return oponentName;
 	}
@@ -59,14 +60,14 @@ public class GamesExtendedHelper extends Games {
 					avgRes += parseDouble(points[0]);
 				}
                                 } catch(NumberFormatException ex){
-                                    LogPc.Pclog.error(ex.getMessage(), ex);
+                                    new LoggerCustom("GamesExtHelper").error(ex.getMessage(), ex);
                                 }
 				
 			}
 			avgRes = avgRes / results.length;
 		}
 		} catch(Exception ex){
-			LogPc.Pclog.error(ex.getMessage(), ex);
+			new LoggerCustom("GamesExtHelper").error(ex.getMessage(), ex);
 		}
 		return avgRes;
 	}
